@@ -8,7 +8,7 @@ messages = [
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/get_recipe')
 def get_recipe():
     recipe = request.args.get('recipe_name')
     if recipe:
@@ -24,7 +24,10 @@ def get_recipe():
         cleaned_reply = reply.split('```')[1]
         cleaned_reply = cleaned_reply.replace('json', '')
         return cleaned_reply
-
+    else:
+        return []
+@app.route('/get_ingredient_detail')
+def get_ingredient_detail():
     ingredient = request.args.get('ingredient')
     if ingredient:
         ask_format = "What is the purpose of " + ingredient + "in the recipe?"
@@ -37,5 +40,6 @@ def get_recipe():
         reply = chat.choices[0].message.content
 
         return reply
-
+    else:
+        return []
     
