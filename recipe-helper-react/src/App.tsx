@@ -22,7 +22,7 @@ function App() {
   };
   const handleSearch = () => {
     console.log(searchTerm);
-    axios.get(backendAddress + "/", {
+    axios.get(backendAddress + "/get_recipe", {
       params: {
         recipe_name: searchTerm
       }

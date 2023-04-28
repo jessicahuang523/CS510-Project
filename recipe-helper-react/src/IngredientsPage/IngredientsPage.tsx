@@ -13,7 +13,7 @@ function IngredientsPage(props: any) {
     const [header, setHeader] = useState('Ingredient Name');
     const fetchIngrediantsDetails = () => {
         console.log(props.Ingredients);
-        axios.get(props.backendAddress + "/", {
+        axios.get(props.backendAddress + "/get_ingredient_detail", {
           params: {
             ingredient: props.Ingredients
           }
