@@ -1,5 +1,6 @@
 import openai
 from flask import Flask, request
+import json
 
 openai.api_key_path = './key.txt'
 messages = [
@@ -23,7 +24,8 @@ def get_recipe():
 
         cleaned_reply = reply.split('```')[1]
         cleaned_reply = cleaned_reply.replace('json', '')
-        return cleaned_reply
+        json_object = json.loads(cleaned_reply)
+        return json_object
     else:
         return []
 @app.route('/get_ingredient_detail')
@@ -38,7 +40,7 @@ def get_ingredient_detail():
             messages=messages
         )
         reply = chat.choices[0].message.content
-
+        reply = reply.replace('\n', ' ')
         return reply
     else:
         return []
