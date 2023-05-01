@@ -1,5 +1,6 @@
 import openai
 from flask import Flask, request
+from flask_cors import CORS
 import json
 
 openai.api_key_path = './key.txt'
@@ -8,6 +9,7 @@ messages = [
     ]
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/get_recipe')
 def get_recipe():

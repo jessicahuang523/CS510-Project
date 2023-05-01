@@ -4,6 +4,7 @@
 - `pip install flask`
 - `pip install openai`
 - `pip install python-dotenv`
+- `pip install -U flask-cors`
 3. Start by running `flask run`.
 ## APIs
 ### Get Recipe
