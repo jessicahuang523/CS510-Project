@@ -11,11 +11,12 @@ import Axios from 'axios';
 // import 'primereact/resources/primereact.min.css';           
 // import 'primeicons/primeicons.css';
 function DefaultPage(props: any) {
-    const [selectedIngrediants, setSelectedIngrediants] = useState([]);
+    const [selectedIngrediants, setSelectedIngrediants] = useState<string[]>([]);
     const OnClickViewDetails = () => {
         console.log(selectedIngrediants);
         if(selectedIngrediants.length != 0) {
-          props.setIngredients(selectedIngrediants);
+          const ingredient = selectedIngrediants[0].split(": ")[1];
+          props.setIngredients(ingredient);
         }
         props.setPageState(1);
     }
@@ -24,7 +25,7 @@ function DefaultPage(props: any) {
           {/* <div className="title">Default Page</div> */}
           <DataTable value={props.recipeContent} selectionMode={'checkbox'} selection={selectedIngrediants} onSelectionChange={(e: any) => setSelectedIngrediants(e.value)} dataKey="id" tableStyle={{ minWidth: '50rem' }}>
               <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
-              <Column field="ingrediant" header="Ingrediant"></Column>
+              <Column header="Ingrediant" body={(rowData: string) => <>{rowData}</>}></Column>
               {/* <Column field="quantity" header="Quantity"></Column> */}
           </DataTable>
           <Button label="View Details" onClick={() => OnClickViewDetails()} />

@@ -62,7 +62,7 @@ function App() {
   ];
   let page;
   if (pageState === 0) {
-    page = <DefaultPage backendAddress= {backendAddress} recipeContent={recipeContent} setIngredient={setIngredients} setPageState={setPageState}/>
+    page = <DefaultPage backendAddress= {backendAddress} recipeContent={recipeContent} setIngredients={setIngredients} setPageState={setPageState}/>
   }
   else if (pageState === 1) {
     page = <IngredientsPage backendAddress= {backendAddress} ingredient={ingredients}/>

@@ -12,19 +12,22 @@ function IngredientsPage(props: any) {
     const [content, setContent] = useState('None');
     const [header, setHeader] = useState('Ingredient Name');
     const fetchIngrediantsDetails = () => {
-        console.log(props.Ingredients);
+        console.log(props.ingredient);
         axios.get(props.backendAddress + "/get_ingredient_detail", {
           params: {
-            ingredient: props.Ingredients
+            ingredient: props.ingredient
           }
         }).then((response: any) => {
           console.log(response);
           setContent(response.data);
-          if(props.Ingredients.length >= 1){
-            setHeader(props.Ingredients[0]["ingrediant"]);
+          if(props.ingredient.length >= 1){
+            setHeader(props.ingredient[0]["ingrediant"]);
           }
         });
       };
+      useEffect(() => {
+        fetchIngrediantsDetails();
+      }, []);
     return (
         <div className="IngredientsPage">
             <Panel header={header}>
