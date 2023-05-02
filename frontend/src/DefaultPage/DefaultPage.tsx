@@ -25,7 +25,7 @@ function DefaultPage(props: any) {
           <DataTable value={props.recipeContent} selectionMode={'checkbox'} selection={selectedIngrediants} onSelectionChange={(e: any) => setSelectedIngrediants(e.value)} dataKey="id" tableStyle={{ minWidth: '50rem' }}>
               <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
               <Column field="ingrediant" header="Ingrediant"></Column>
-              <Column field="quantity" header="Quantity"></Column>
+              {/* <Column field="quantity" header="Quantity"></Column> */}
           </DataTable>
           <Button label="View Details" onClick={() => OnClickViewDetails()} />
          </div>

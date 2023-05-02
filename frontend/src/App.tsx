@@ -14,9 +14,27 @@ function App() {
   // 0 = base recipe + ingredients, 1 = ingredients
   const [pageState, setPageState] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
-  const [recipeContent, setRecipeContent] = useState([]);
+  const [recipeContent, setRecipeContent] = useState<IngredientList>([]);
   const [ingredients, setIngredients] = useState("");
-  const backendAddress = "http://localhost:5000";
+
+  const backendAddress = "http://127.0.0.1:5000";
+
+  type IngredientList = string[];
+  function mergeIngredientLists(baseRecipeContent: IngredientList, optionalRecipeContent: IngredientList): IngredientList {
+    const mergedList: IngredientList = [];
+  
+    baseRecipeContent.forEach(ingredient => {
+      mergedList.push(`Base: ${ingredient}`);
+    });
+  
+    optionalRecipeContent.forEach(ingredient => {
+      mergedList.push(`Optional: ${ingredient}`);
+    });
+  
+    return mergedList;
+  }
+
+  
   const handleMenuItemClick = (newPageStatus: number) => {
     setPageState(newPageStatus);
   };
@@ -28,7 +46,7 @@ function App() {
       }
     }).then((response: any) => {
       console.log(response);
-      setRecipeContent(response.data);
+      setRecipeContent(mergeIngredientLists(response.data.basic, response.data.optional));
     });
   };
 
