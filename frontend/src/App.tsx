@@ -7,7 +7,8 @@ import { Menu } from 'primereact/menu';
 import { Button } from 'primereact/button';
 import { InputText } from "primereact/inputtext";
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
-import "primereact/resources/primereact.min.css";                                       
+import "primereact/resources/primereact.min.css"; 
+import { TabMenu } from 'primereact/tabmenu';                                      
 import axios from 'axios';      
 
 function App() {
@@ -72,15 +73,13 @@ function App() {
   return (
     <div className="App">
       <h1>Recipe Helper</h1>
-      <div>
-      <div className="card flex justify-content-center">
+      <div style={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%' }}>
+      <div className="p-inputgroup flex-1" style={{ width: '80%' }}>
             <InputText value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-        </div>
-      <div className="card flex justify-content-center">
             <Button label="Search" onClick={handleSearch} />
-        </div>
       </div>
-      <Menu model={items} className="App-menu"/>
+      </div>
+      <TabMenu model={items} />
       {page}
     </div>
   );
