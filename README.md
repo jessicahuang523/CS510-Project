@@ -68,10 +68,15 @@ Recipe Helper is a web extension tool designed to help cooking enthusiasts and i
 
 ### Using the Chrome extension
 
-1. Open Chrome and navigate to `chrome://extensions/`.
-2. Enable Developer mode (toggle in the top right corner).
-3. Click "Load unpacked" and select the `extension` folder from the project directory.
-4. The Recipe Helper extension should now be available in your browser toolbar.
+1. Build the extension
+   ```
+   cd frontend/
+   npm run build
+   ```
+2. Open Chrome and navigate to `chrome://extensions/`.
+3. Enable Developer mode (toggle in the top right corner).
+4. Click "Load unpacked" and select the `extension` folder from the project directory.
+5. The Recipe Helper extension should now be available in your browser toolbar.
 
 ## Contributing
 
