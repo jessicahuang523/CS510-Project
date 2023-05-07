@@ -41,8 +41,12 @@ Recipe Helper is a web extension tool designed to help cooking enthusiasts and i
 
    ```
    cd backend
-   pip install -r requirements.txt
+   pip install flask
+   pip install openai
+   pip install python-dotenv
+   pip install -U flask-cors
    ```
+4. Get an OpenAI API key from [here](https://platform.openai.com/account/api-keys) (Instructions are available [here](https://www.howtogeek.com/885918/how-to-get-an-openai-api-key/)). Create a file called `key.txt` in the `backend` directory and copy and paste the key to the file.
 
 ## Usage
 
@@ -61,7 +65,7 @@ Recipe Helper is a web extension tool designed to help cooking enthusiasts and i
 1. In the `backend` directory, run:
 
    ```
-   python app.py
+   flask run
    ```
 
 2. The backend will be running on [http://localhost:5000](http://localhost:5000).
