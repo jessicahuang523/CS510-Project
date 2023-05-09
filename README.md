@@ -50,7 +50,7 @@ Recipe Helper is a web extension tool designed to help cooking enthusiasts and i
 
 ## Usage
 
-### Running the frontend
+### Running the frontend (development-only)
 
 1. In the `frontend` directory, run:
 
